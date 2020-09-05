@@ -1,8 +1,22 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
 function App() {
+
+  const [ value, setValue] = useState('');
+
+  useEffect(() => {
+    
+    
+  }, [])
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>)=>{
+
+    event.persist()
+    setValue(()=>event.target.value);
+  }
+  
   return (
     <div className="App">
       <header className="App-header">
@@ -19,6 +33,7 @@ function App() {
           Learn React
         </a>
       </header>
+      <input type="text" onChange={handleChange} value={value} name="name" id="name" placeholder="Enter your name" />
     </div>
   );
 }
